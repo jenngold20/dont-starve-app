@@ -1,8 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
-// Componentes simplificados
+// Importa las imágenes
+import wilsonImg from './img/wilson.webp'
+import willowImg from './img/willow.webp'
+import wolfgangImg from './img/wolfgang.webp'
+import wendyImg from './img/wendy.webp'
+import wx78Img from './img/wx78.webp'
+
+// Componentes simplificados (sin cambios)
 const Button = ({ children, onClick, className = '' }) => (
   <button
     onClick={onClick}
@@ -27,31 +35,31 @@ const characters = [
     name: "Wilson",
     description: "El Caballero Científico",
     ability: "Puede crear objetos científicos con facilidad.",
-    image: "/placeholder.svg?height=200&width=200"
+    image: wilsonImg
   },
   {
     name: "Willow",
     description: "La Pirómana",
     ability: "Inmune al fuego y puede crear su propio fuego.",
-    image: "/placeholder.svg?height=200&width=200"
+    image: willowImg
   },
   {
     name: "Wolfgang",
     description: "El Hombre Fuerte",
     ability: "Se vuelve más fuerte cuando está bien alimentado.",
-    image: "/placeholder.svg?height=200&width=200"
+    image: wolfgangImg
   },
   {
     name: "Wendy",
     description: "La Médium",
     ability: "Puede invocar el espíritu de su hermana gemela.",
-    image: "/placeholder.svg?height=200&width=200"
+    image: wendyImg
   },
   {
     name: "WX-78",
     description: "El Autómata",
     ability: "Puede comer engranajes para mejorar sus estadísticas.",
-    image: "/placeholder.svg?height=200&width=200"
+    image: wx78Img
   }
 ]
 
@@ -86,10 +94,12 @@ export default function Component() {
             <div className="flex items-center justify-center space-x-4">
               <Button onClick={prevCharacter}>&lt;</Button>
               <div className="w-64 h-80 bg-[#3A2A1A] rounded-lg p-4 flex flex-col items-center justify-center">
-                <img
+                <Image
                   src={characters[currentCharacter].image}
                   alt={characters[currentCharacter].name}
-                  className="w-32 h-32 mb-4 rounded-full border-4 border-[#E0D0A0]"
+                  width={128}
+                  height={128}
+                  className="mb-4 rounded-full border-4 border-[#E0D0A0]"
                 />
                 <h3 className="text-xl font-bold">{characters[currentCharacter].name}</h3>
                 <p className="text-sm italic mb-2">{characters[currentCharacter].description}</p>
@@ -124,7 +134,7 @@ export default function Component() {
         </div>
       </main>
       <footer className="p-4 bg-[#1A1A1A] text-center text-sm">
-        <p>© 2023 Klei Entertainment. Don't Starve Together es una marca registrada de Klei Entertainment Inc.</p>
+        <p>© 2024 Realizada por Jenn ♡ . Don't Starve Together es una marca registrada de Klei Entertainment Inc.</p>
       </footer>
     </div>
   )
